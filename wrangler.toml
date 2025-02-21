@@ -1,9 +1,10 @@
 [build]
-command = "bash ./build.sh"
-publish = ".next"
+command = "npm install && npm run build"
+pages_build_output_dir = ".next"
 
 [build.environment]
 NODE_VERSION = "18.17.1"
+NODE_ENV = "production"
 
 [site]
 bucket = ".next"
