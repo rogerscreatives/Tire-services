@@ -1,7 +1,9 @@
 'use client';
-import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 import ThemeProvider from '@/lib/hooks/use-theme';
+
 import Cursor from '@/components/ui/Cursor';
+
+import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
 
 export default function RootLayoutClient({
   children,
@@ -12,9 +14,6 @@ export default function RootLayoutClient({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <script src="/scripts/no-flash.js" async />
-      </head>
       <body className={`text-text bg-bg ${fontVariables}`}>
         <Cursor className="hidden dark:lg:block" />
         <ThemeProvider>{children}</ThemeProvider>
@@ -24,6 +23,14 @@ export default function RootLayoutClient({
           options={{ showSpinner: false }}
           shallowRouting
         />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              // Prevent flash of unstyled content
+              document.documentElement.style.visibility = 'visible';
+            })();
+          `
+        }} />
       </body>
     </html>
   );

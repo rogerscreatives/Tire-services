@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  output: 'standalone',
+  output: 'export',
   images: {
     unoptimized: true,
     remotePatterns: [
@@ -37,4 +37,6 @@ module.exports = {
       },
     ],
   },
+  trailingSlash: true,
+  distDir: '.next'
 };

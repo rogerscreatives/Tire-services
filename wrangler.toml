@@ -1,11 +1,12 @@
 [build]
 command = "npm ci && npm run build"
-output_directory = ".next"
+output_directory = "out"
 
 [build.environment]
 NODE_VERSION = "18.17.1"
 NODE_ENV = "production"
 CI = "true"
+NEXT_TELEMETRY_DISABLED = "1"
 
 [site]
 bucket = ".next"
