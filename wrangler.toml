@@ -1,11 +1,11 @@
 [build]
-command = "npm install && npm run build"
-pages_build_output_dir = ".next"
+command = "npm ci && npm run build"
+output_directory = ".next"
 
 [build.environment]
 NODE_VERSION = "18.17.1"
 NODE_ENV = "production"
-NPM_FLAGS = "--legacy-peer-deps"
+CI = "true"
 
 [site]
 bucket = ".next"
